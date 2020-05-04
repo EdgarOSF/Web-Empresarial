@@ -27,7 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Path de Blog
     path('blog/', include('blog.urls')),
-
+    # Path de Pages
+    path('page/', include('pages.urls')),
 ]
 
 if settings.DEBUG:
