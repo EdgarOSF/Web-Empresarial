@@ -29,6 +29,8 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     # Path de Pages
     path('page/', include('pages.urls')),
+    # Path de Cotact
+    path('contact/', include('contact.urls')),
 ]
 
 if settings.DEBUG:

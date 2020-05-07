@@ -14,7 +14,15 @@
             <h2 class="section-heading mb-4">
               <span class="section-heading-lower">{{page.title}}</span>
             </h2>
-            <div class="section-content">{{page.content|linebreaks}}</div>
+            <div class="section-content">
+              {{page.content|safe}}
+              {% if user.is_authenticated %}
+                <!-- Acceder al panel de modificacion del admin: 'admin(app):"app"_"modelo"_"operacion"' -->
+                <!-- https://docs.djangoproject.com/en/2.0/ref/contrib/admin/#reversing-admin-urls -->
+                <p><a href="{% url 'admin:pages_page_change' page.id %}">Editar</a></p>
+                <!-- <p><a href="{% url 'admin:auth_user_password_change' user.id %}">Editar</a></p> -->
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
